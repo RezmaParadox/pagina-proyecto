@@ -7,6 +7,7 @@ const ball = document.getElementsByClassName("balon")[0];
 //Variables para menu hamburguesa
 const listItems = document.querySelectorAll(".mymenu-items li");
 const input = document.getElementById('menu-btn'); 
+const listIcons = document.querySelectorAll(".icons-menu li");
 
 //Variables para slider
 let currentSlide = 0;
@@ -18,16 +19,18 @@ const cardsJugadores = document.querySelectorAll(" #jugadores-slider .card");
 const totalCardsJugadores = cardsJugadores.length;
 
 
-//Función para redireccionar al hacer clic en un enlace
-listItems.forEach((li) => {
-    li.addEventListener("click", () => {
-      const link = li.querySelector("a"); 
-      if (link) {
-        window.location.href = link.href; 
-        input.checked = false;
-      }
-    });
+//Función para redireccionar al hacer clic en un enlace y cerrar el menu
+const elements = [...listItems, ...listIcons];
+
+elements.forEach((element) => {
+  element.addEventListener("click", () => {
+    const link = element.querySelector("a");
+    if (link) {
+      window.location.href = link.href;
+      input.checked = false;
+    }
   });
+});
 
 
 
